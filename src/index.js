@@ -7,12 +7,15 @@ import './styles.scss';
 
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import { featureReducer } from './reducers';
 
-
+const store = createStore(featureReducer);
 
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(
-<Provider>
-    <App />
-</Provider>, rootElement);
+    <Provider store={store}>
+        <App />
+    </Provider>, 
+    rootElement
+);

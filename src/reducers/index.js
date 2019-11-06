@@ -17,16 +17,24 @@ const initialState = {
     ]
   };
 
-  const featureReducer = (state = initialState, action) => {
+  export const featureReducer = (state = initialState, action) => {
       console.log('action', action);
       switch (action.type) {
-        case : 
+        case ADD_FEATURE: 
+            return {
+                ...state,
+                car: {
+                    ...state.car,
+                    features: [...state.car.features, action.payload]
+                },
+                additionalPrice: state.additionalPrice + action.payload
+            };
+        case REMOVE_FEATURE: 
             return {
                 ...state
-            };
-      };
-      default: 
-        return state;
-  }
+            }
+        default: 
+            return state;
+    }
+  };
 
-  export default featureReducer;
